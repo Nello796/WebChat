@@ -1,0 +1,41 @@
+@import "../../styles/_global";
+
+.login-style {
+  @include display-flex(center, flex, column, center);
+
+  height: 100vh;
+  width: 100%;
+
+  h2 {
+    color: $independence;
+    font-weight: bold;
+    margin: 0 0 1.5rem 0;
+  }
+
+  form {
+    @include display-flex(center, flex, column, center);
+
+    width: 95%;
+
+    input,
+    button {
+      box-sizing: border-box;
+      margin: 1rem;
+      width: 100%;
+    }
+  }
+
+  small {
+    color: $independence;
+    margin-top: 1rem;
+
+    span {
+      border-bottom: 1px solid $independence;
+
+      &:hover {
+        color: $uclaBlue;
+        cursor: pointer;
+      }
+    }
+  }
+}

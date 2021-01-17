@@ -1,0 +1,14 @@
+/* Global Variables */
+$independence: rgba(73, 88, 103, 1);
+$uclaBlue: rgba(87, 115, 153, 1);
+$beauBlue: rgba(189, 213, 234, 1);
+$lavenderWeb: rgba(229, 229, 243, 1);
+$sunsetOrange: rgba(254, 95, 85, 1);
+
+/* Global Mixins */
+@mixin display-flex($align-items, $display, $flex-direction, $justify-content) {
+  align-items: $align-items;
+  display: $display;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+}
