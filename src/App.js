@@ -1,9 +1,8 @@
-import Login from './pages/login/Login';
+import Loading from './components/loading/Loading';
 
 function App() {
   return (
     <div>
-      <Login />
     </div>
   );
 }

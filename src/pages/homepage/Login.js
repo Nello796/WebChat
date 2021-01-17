@@ -1,8 +1,8 @@
-import './Login.scss';
+import './Homepage.scss';
 
 function Login() {
   return (
-    <section className="login-style">
+    <section className="homepage-style">
       <h2>WebChat</h2>
 
       <form>

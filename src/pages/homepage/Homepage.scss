@@ -1,6 +1,6 @@
 @import "../../styles/_global";
 
-.login-style {
+.homepage-style {
   @include display-flex(center, flex, column, center);
 
   height: 100vh;
@@ -31,6 +31,7 @@
 
     span {
       border-bottom: 1px solid $independence;
+      padding-bottom: .2rem;
 
       &:hover {
         color: $uclaBlue;

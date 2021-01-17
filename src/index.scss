@@ -77,4 +77,8 @@ input {
 button {
   background-color: $uclaBlue;
   color: $lavenderWeb;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
