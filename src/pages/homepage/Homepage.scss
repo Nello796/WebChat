@@ -40,3 +40,20 @@
     }
   }
 }
+
+
+@media only screen and (min-width: 768px) {
+  .homepage-style {
+    form {
+      width: 50%
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .homepage-style {
+    form {
+      width: 30%
+    }
+  }
+}

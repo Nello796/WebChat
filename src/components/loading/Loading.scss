@@ -1,7 +1,7 @@
 @import "../../styles/_global";
 
 .loading-style {
-  @include display-flex(center, flex, column, center);
+  @include display-flex(center, none, column, center);
 
   height: 100vh;
 

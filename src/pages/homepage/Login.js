@@ -1,6 +1,7 @@
+import React from 'react';
 import './Homepage.scss';
 
-function Login() {
+function Login(props) {
   return (
     <section className="homepage-style">
       <h2>WebChat</h2>
@@ -13,7 +14,7 @@ function Login() {
       </form>
 
       <small>
-        Not a member ? <span>Sing up now</span>
+        Not a member ? <span onClick={ () => props.handlePageChange('signUp') }>Sing up now</span>
       </small>
     </section>
   );
