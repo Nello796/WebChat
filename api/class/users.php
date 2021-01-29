@@ -18,17 +18,23 @@ class Users {
 
             $error_list = [];
 
-            $query_check_username = $this->db_connection->prepare("SELECT COUNT(1) FROM $this->db_users_table WHERE username = :username");
-            $query_check_email = $this->db_connection->prepare("SELECT COUNT(1) FROM $this->db_users_table WHERE email = :email");
+            if (!empty($username)) {
 
-            $query_check_username->bindParam(":username", $username, PDO::PARAM_STR);
-            $query_check_email->bindParam(":email", $email, PDO::PARAM_STR);
+                $query_check_username = $this->db_connection->prepare("SELECT COUNT(1) FROM $this->db_users_table WHERE username = :username");
+                $query_check_username->bindParam(":username", $username, PDO::PARAM_STR);
+                $query_check_username->execute();
 
-            $query_check_username->execute();
-            $query_check_email->execute();
+                if ($query_check_username->fetchColumn()) array_push($error_list, "existing-username");
+            }
 
-            if ($query_check_username->fetchColumn()) array_push($error_list, "username");
-            if ($query_check_email->fetchColumn()) array_push($error_list, "email");
+            if (!empty($email)) {
+
+                $query_check_email = $this->db_connection->prepare("SELECT COUNT(1) FROM $this->db_users_table WHERE email = :email");
+                $query_check_email->bindParam(":email", $email, PDO::PARAM_STR);
+                $query_check_email->execute();
+                
+                if ($query_check_email->fetchColumn()) array_push($error_list, "existing-email");
+            }
 
             return $error_list;
         } catch (PDOException $e) {
@@ -48,6 +54,29 @@ class Users {
             $query->bindParam(":email", $email, PDO::PARAM_STR);
 
             $query->execute();
+        } catch (PDOException $e) {
+
+            return (integer) $e->getCode();
+        } 
+    }
+
+    // LOGIN USER
+    public function loginUser($email, $password) {
+        try {
+
+            $query = $this->db_connection->prepare("SELECT * FROM $this->db_users_table WHERE email = :email");
+            $query->bindParam(":email", $email, PDO::PARAM_STR);
+            $query->execute();
+
+            $result = $query->fetch(PDO::FETCH_ASSOC);
+
+            if (password_verify($password ,$result["password"])) {
+
+                unset($result["password"]);
+                return $result;
+            };
+
+            return "wrong-password";
         } catch (PDOException $e) {
 
             return (integer) $e->getCode();

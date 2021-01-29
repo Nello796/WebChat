@@ -1,0 +1,16 @@
+@import "../../styles/_global";
+
+.error-notification-style {
+    background-color: $sunsetOrange;
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+
+    p {
+        color: $lavenderWeb;
+        font-weight: bold;
+    }
+}

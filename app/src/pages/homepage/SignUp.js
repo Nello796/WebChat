@@ -18,9 +18,7 @@ class SignUp extends React.Component {
 
   handleSubmit(event) {
 
-    const content_type = 'axios application/x-some-custom-type';
-
-    axios.post('http://192.168.1.29/WebChat/api/request/createUser.php', {
+    axios.post('http://192.168.1.254:8080/WebChat/api/request/createUser.php', {
         username: this.state.username,
         email: this.state.email,
         password: this.state.password
@@ -57,9 +55,7 @@ class SignUp extends React.Component {
           <input type="text" name="email" value={ this.state.email } placeholder="Email" onChange={ this.handleChangeInputs } />
           <input type="password" name="password" value={ this.state.password } placeholder="Password" onChange={ this.handleChangeInputs } />
 
-          <button type="submit">
-            SIGN UP
-          </button>
+          <button type="submit">SIGN UP</button>
 
           <small>
             Already a member ?{" "}

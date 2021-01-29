@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Loading from './components/loading/Loading';
+import ErrorNotification from './components/errorNotification/ErrorNotification';
 import Login from './pages/homepage/Login';
 import SignUp from './pages/homepage/SignUp';
 
@@ -46,6 +47,8 @@ class App extends React.Component {
         <article>
           {this.renderPage()}
         </article>
+
+        <ErrorNotification />
       </div>
     );
   }

@@ -5,7 +5,7 @@ class Database {
     private $servername = "localhost";
     private $database = "webChat";
     private $username = "debian-sys-maint";
-    private $password = "IyyHcSPxLQTJinx7";
+    private $password = "UKqvFiV8RZsGHYkd";
 
     // CONNECTION
     public $connection;
